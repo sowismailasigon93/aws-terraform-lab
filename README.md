@@ -1,5 +1,7 @@
 # Infrastructure AWS sécurisée — Terraform & GitHub Actions
 
+![Terraform](https://github.com/sowismailasigon93/aws-terraform-lab/actions/workflows/terraform.yml/badge.svg)
+
 > Déploiement automatisé d'une instance EC2 **sans adresse IP publique et sans aucun port d'entrée ouvert**, administrée via AWS Systems Manager Session Manager à travers des VPC endpoints privés. Chaîne de livraison avec analyse de sécurité IaC bloquante.
 
 **Auteur :** Ismaila Sow — Ingénieur Systèmes & Sécurité
