@@ -89,8 +89,8 @@ aws ec2 describe-instances --instance-ids $ID \
 aws ssm start-session --target $ID
 ```
 
-![Aucune adresse IP publique ] (docs/no-public-ip.png)
-![Session SSM sans port ouvert ] (docs/session-ssm.png)
+![Aucune adresse IP publique](docs/no-public-ip.png)
+![Session SSM sans port ouvert](docs/session-ssm.png)
 
 ---
 
