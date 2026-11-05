@@ -17,7 +17,6 @@ La réponse tient en deux parties : une architecture réseau fermée, et un pipe
 
 ## Architecture
 
-
 ![Architecture](docs/architecture.svg)
 
 | Composant | Choix | Raison |
@@ -36,7 +35,6 @@ La réponse tient en deux parties : une architecture réseau fermée, et un pipe
 
 ## Le pipeline
 
-
 ![Pipeline](docs/pipeline.png)
 
 | Étape | Rôle | Bloquant |
@@ -44,9 +42,9 @@ La réponse tient en deux parties : une architecture réseau fermée, et un pipe
 | `validate` | `terraform fmt -check` et `terraform validate` | Oui |
 | `security` | Analyse IaC par Trivy, sévérités HIGH et CRITICAL | **Oui** |
 | `plan` | Génère et publie le plan comme artefact | Oui |
-| `apply` | Déploiement | Déclenchement manuel uniquement |
+| `apply` | Déploiement | Approbation d'un relecteur requise |
 
-Sur chaque pull request, les trois premières étapes s'exécutent et le plan est publié pour relecture. Le déploiement n'intervient jamais automatiquement.
+Sur chaque pull request, les trois premières étapes s'exécutent et le plan est publié pour relecture. Le déploiement n'intervient qu'après fusion sur la branche principale et approbation explicite d'un relecteur, via un environnement GitHub protégé.
 
 ---
 
@@ -62,7 +60,6 @@ Trivy a remonté trois alertes :
 |---|---|---|
 | `AWS-0164` | HIGH | Le sous-réseau attribue une adresse IP publique |
 | `AWS-0104` ×2 | HIGH | Les règles de sortie autorisent tout Internet |
-
 
 L'écart était réel : la machine disposait bien d'une adresse publique et restait joignable au niveau réseau, même avec tous les ports fermés. L'intention affichée et l'implémentation ne coïncidaient pas.
 
@@ -101,8 +98,6 @@ Ce projet est un laboratoire. Les écarts suivants sont connus et documentés pl
 **Authentification de la chaîne de livraison.** L'approche retenue initialement était OIDC, qui évite tout secret de longue durée dans la CI. Elle s'est révélée impossible sur ce compte : la SCP gérée par AWS pour les comptes « projects » interdit `iam:*Provider*`, dans le Free Tier comme dans le plan payant. Repli sur un utilisateur IAM dédié, clés stockées en secrets GitHub chiffrés, rotation prévue et suppression en fin de projet. Sur un compte standard, la politique de confiance serait restreinte à `repo:<compte>/<dépôt>:*`.
 
 **Permissions de l'utilisateur CI.** `PowerUserAccess` et `IAMFullAccess` sont des raccourcis de laboratoire. En production, une politique sur mesure limitée aux ressources du projet s'impose.
-
-**Approbation avant déploiement.** Les règles de protection d'environnement de GitHub ne sont pas disponibles sur un dépôt privé en compte gratuit. L'`apply` est donc restreint à un déclenchement manuel explicite, à rebasculer sur une approbation par relecteur le jour où le dépôt passe en public.
 
 **Haute disponibilité.** Déploiement sur une seule zone de disponibilité, sans redondance. Hors périmètre pour un projet de démonstration.
 
