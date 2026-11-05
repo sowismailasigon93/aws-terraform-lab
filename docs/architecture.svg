@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="820" viewBox="0 0 1300 820" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3f4652"/>
+    </marker>
+    <marker id="arrowS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5f6b7a"/>
+    </marker>
+  </defs>
+
+  <rect width="1300" height="820" fill="#ffffff"/>
+
+  <text x="40" y="36" font-size="19" font-weight="700" fill="#16191f">Infrastructure AWS sans exposition Internet</text>
+
+  <!-- ===== INTERNET (bloque) ===== -->
+  <rect x="50" y="68" width="195" height="86" rx="8" fill="#fdf2f0" stroke="#d13212" stroke-width="2"/>
+  <text x="147" y="102" font-size="15" font-weight="600" fill="#9c2410" text-anchor="middle">Internet</text>
+  <text x="147" y="125" font-size="12" fill="#9c2410" text-anchor="middle">Pas de passerelle</text>
+  <text x="147" y="142" font-size="12" fill="#9c2410" text-anchor="middle">Pas d'IP publique</text>
+  <text x="147" y="176" font-size="12.5" font-weight="700" fill="#d13212" text-anchor="middle">Aucune route entrante</text>
+
+  <line x1="245" y1="111" x2="306" y2="111" stroke="#d13212" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <g stroke="#d13212" stroke-width="3.5" stroke-linecap="round">
+    <line x1="266" y1="98" x2="286" y2="124"/>
+    <line x1="286" y1="98" x2="266" y2="124"/>
+  </g>
+
+  <!-- ===== PRINCIPE ===== -->
+  <rect x="50" y="198" width="195" height="416" rx="8" fill="#fbfbfc" stroke="#dde2e8" stroke-width="1.5"/>
+  <text x="70" y="226" font-size="13" font-weight="700" fill="#16191f">Principe</text>
+  <text x="70" y="252" font-size="12" fill="#48525f">Aucun port d'entree</text>
+  <text x="70" y="271" font-size="12" fill="#48525f">n'est ouvert, et la</text>
+  <text x="70" y="290" font-size="12" fill="#48525f">machine n'a pas</text>
+  <text x="70" y="309" font-size="12" fill="#48525f">d'adresse publique.</text>
+  <text x="70" y="340" font-size="12" fill="#48525f">Le trafic d'administration</text>
+  <text x="70" y="359" font-size="12" fill="#48525f">ne quitte jamais le</text>
+  <text x="70" y="378" font-size="12" fill="#48525f">reseau AWS.</text>
+
+  <line x1="70" y1="400" x2="225" y2="400" stroke="#dde2e8" stroke-width="1.5"/>
+  <circle cx="79" cy="424" r="10" fill="#3f4652"/>
+  <text x="79" y="428" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="97" y="428" font-size="12" fill="#48525f">appel API SSM</text>
+  <circle cx="79" cy="454" r="10" fill="#3f4652"/>
+  <text x="79" y="458" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="97" y="458" font-size="12" fill="#48525f">relais vers l'agent</text>
+  <circle cx="79" cy="484" r="10" fill="#3f4652"/>
+  <text x="79" y="488" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="97" y="488" font-size="12" fill="#48525f">session etablie</text>
+
+  <line x1="70" y1="512" x2="225" y2="512" stroke="#dde2e8" stroke-width="1.5"/>
+  <text x="70" y="538" font-size="11.5" fill="#5f6b7a">Terraform  +  GitHub</text>
+  <text x="70" y="557" font-size="11.5" fill="#5f6b7a">Actions  +  Trivy</text>
+  <text x="70" y="582" font-size="11.5" fill="#5f6b7a">Region  eu-north-1</text>
+
+  <!-- ===== ADMINISTRATEUR ===== -->
+  <rect x="50" y="636" width="195" height="100" rx="8" fill="#f6f7f8" stroke="#5f6b7a" stroke-width="2"/>
+  <text x="147" y="670" font-size="15" font-weight="600" fill="#16191f" text-anchor="middle">Administrateur</text>
+  <text x="147" y="694" font-size="12" fill="#48525f" text-anchor="middle">AWS CLI</text>
+  <text x="147" y="714" font-size="12" fill="#48525f" text-anchor="middle">Aucune cle SSH</text>
+
+  <!-- ===== VPC ===== -->
+  <rect x="312" y="60" width="600" height="600" rx="10" fill="#faf7ff" stroke="#8c4fff" stroke-width="2.5"/>
+  <text x="332" y="88" font-size="15" font-weight="700" fill="#6b32d6">VPC  10.20.0.0/16</text>
+  <text x="332" y="108" font-size="12" fill="#6b32d6">Flow Logs vers CloudWatch (14 j)</text>
+
+  <rect x="340" y="128" width="544" height="330" rx="8" fill="#f2fbf5" stroke="#1b8a3f" stroke-width="2"/>
+  <text x="360" y="155" font-size="14" font-weight="700" fill="#136b30">Sous-reseau prive  10.20.1.0/24</text>
+
+  <!-- EC2 -->
+  <rect x="360" y="174" width="228" height="168" rx="8" fill="#fff6ee" stroke="#ed7100" stroke-width="2"/>
+  <text x="474" y="204" font-size="14" font-weight="700" fill="#a34e00" text-anchor="middle">EC2  t3.micro</text>
+  <text x="474" y="226" font-size="12" fill="#6b4a2a" text-anchor="middle">Amazon Linux 2023</text>
+  <line x1="380" y1="240" x2="568" y2="240" stroke="#f0cfae" stroke-width="1.5"/>
+  <text x="474" y="261" font-size="12" font-weight="600" fill="#136b30" text-anchor="middle">Aucune IP publique</text>
+  <text x="474" y="282" font-size="12" font-weight="600" fill="#136b30" text-anchor="middle">SG : 0 regle entrante</text>
+  <text x="474" y="303" font-size="12" fill="#6b4a2a" text-anchor="middle">IMDSv2 obligatoire</text>
+  <text x="474" y="324" font-size="12" fill="#6b4a2a" text-anchor="middle">Disque gp3 chiffre</text>
+
+  <!-- Endpoints interface -->
+  <rect x="648" y="174" width="212" height="168" rx="8" fill="#f6f1ff" stroke="#8c4fff" stroke-width="2"/>
+  <text x="754" y="204" font-size="14" font-weight="700" fill="#6b32d6" text-anchor="middle">VPC Endpoints</text>
+  <text x="754" y="223" font-size="12" fill="#6b32d6" text-anchor="middle">type Interface</text>
+  <line x1="666" y1="238" x2="842" y2="238" stroke="#d9c8ff" stroke-width="1.5"/>
+  <text x="754" y="262" font-size="12.5" fill="#403356" text-anchor="middle">ssm</text>
+  <text x="754" y="285" font-size="12.5" fill="#403356" text-anchor="middle">ssmmessages</text>
+  <text x="754" y="308" font-size="12.5" fill="#403356" text-anchor="middle">ec2messages</text>
+  <text x="754" y="330" font-size="11.5" fill="#6b6176" text-anchor="middle">DNS prive active</text>
+
+  <!-- Note sortie -->
+  <rect x="600" y="372" width="260" height="76" rx="6" fill="#ffffff" stroke="#9fb0c0" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="730" y="396" font-size="12" font-weight="700" fill="#3f4652" text-anchor="middle">Sortie autorisee : HTTPS 443</text>
+  <text x="730" y="416" font-size="11.5" fill="#5f6b7a" text-anchor="middle">vers le VPC et la prefix list S3</text>
+  <text x="730" y="435" font-size="11.5" fill="#5f6b7a" text-anchor="middle">jamais vers 0.0.0.0/0</text>
+
+  <!-- Table de routage -->
+  <rect x="340" y="486" width="240" height="104" rx="8" fill="#ffffff" stroke="#5f6b7a" stroke-width="1.8"/>
+  <text x="460" y="518" font-size="13.5" font-weight="700" fill="#16191f" text-anchor="middle">Table de routage</text>
+  <text x="460" y="541" font-size="12" fill="#48525f" text-anchor="middle">local uniquement</text>
+  <text x="460" y="563" font-size="12" fill="#48525f" text-anchor="middle">+ route vers endpoint S3</text>
+
+  <!-- Endpoint S3 gateway -->
+  <rect x="620" y="486" width="264" height="104" rx="8" fill="#f6f1ff" stroke="#8c4fff" stroke-width="2"/>
+  <text x="752" y="518" font-size="13.5" font-weight="700" fill="#6b32d6" text-anchor="middle">VPC Endpoint  S3</text>
+  <text x="752" y="538" font-size="12" fill="#6b32d6" text-anchor="middle">type Gateway</text>
+  <text x="752" y="562" font-size="11.5" fill="#6b6176" text-anchor="middle">gratuit  —  depots de paquets</text>
+
+  <!-- ===== SERVICES AWS ===== -->
+  <rect x="972" y="196" width="250" height="124" rx="8" fill="#f2f4ff" stroke="#3b48cc" stroke-width="2"/>
+  <text x="1097" y="232" font-size="14.5" font-weight="700" fill="#2a35a6" text-anchor="middle">AWS Systems Manager</text>
+  <text x="1097" y="257" font-size="12.5" fill="#2a35a6" text-anchor="middle">Session Manager</text>
+  <line x1="992" y1="272" x2="1202" y2="272" stroke="#c6cdf5" stroke-width="1.5"/>
+  <text x="1097" y="296" font-size="12" fill="#434b7a" text-anchor="middle">Journalisation des sessions</text>
+
+  <rect x="972" y="486" width="250" height="104" rx="8" fill="#f2f4ff" stroke="#3b48cc" stroke-width="2"/>
+  <text x="1097" y="522" font-size="14.5" font-weight="700" fill="#2a35a6" text-anchor="middle">Amazon S3</text>
+  <text x="1097" y="548" font-size="12" fill="#434b7a" text-anchor="middle">Depots Amazon Linux</text>
+  <text x="1097" y="568" font-size="12" fill="#434b7a" text-anchor="middle">State Terraform chiffre</text>
+
+  <!-- ===== FLUX ===== -->
+  <!-- 1 : admin -> SSM, contourne le VPC et la boite S3 -->
+  <path d="M 245 686 H 1262 V 258 H 1226" fill="none" stroke="#3f4652" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <circle cx="640" cy="686" r="13" fill="#3f4652"/>
+  <text x="640" y="691" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="664" y="677" font-size="12.5" font-weight="600" fill="#16191f">aws ssm start-session  —  API publique AWS, authentifiee IAM</text>
+
+  <!-- 2 : SSM -> endpoints -->
+  <path d="M 968 258 H 866" fill="none" stroke="#3f4652" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <circle cx="917" cy="258" r="13" fill="#3f4652"/>
+  <text x="917" y="263" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+
+  <!-- 3 : endpoints <-> EC2 -->
+  <path d="M 644 258 H 626" fill="none" stroke="#3f4652" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <path d="M 592 258 H 610" fill="none" stroke="#3f4652" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <circle cx="618" cy="258" r="11" fill="#3f4652"/>
+  <text x="618" y="262" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+
+  <!-- chemin paquets : EC2 -> table -> endpoint S3 -> S3 -->
+  <path d="M 440 346 V 482" fill="none" stroke="#5f6b7a" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#arrowS)"/>
+  <path d="M 584 538 H 616" fill="none" stroke="#5f6b7a" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#arrowS)"/>
+  <path d="M 888 538 H 968" fill="none" stroke="#5f6b7a" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#arrowS)"/>
+  <text x="928" y="524" font-size="11.5" fill="#5f6b7a" text-anchor="middle">dnf update</text>
+</svg>
