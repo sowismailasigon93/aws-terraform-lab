@@ -46,6 +46,8 @@ La réponse tient en deux parties : une architecture réseau fermée, et un pipe
 
 Sur chaque pull request, les trois premières étapes s'exécutent et le plan est publié pour relecture. Le déploiement n'intervient qu'après fusion sur la branche principale et approbation explicite d'un relecteur, via un environnement GitHub protégé.
 
+![Approbation requise avant déploiement](docs/review-deployments.png)
+
 ---
 
 ## Ce que l'analyse de sécurité a révélé
